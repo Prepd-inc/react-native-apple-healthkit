@@ -16,6 +16,7 @@
 #import "RCTAppleHealthKit+Methods_Characteristic.h"
 #import "RCTAppleHealthKit+Methods_Vitals.h"
 #import "RCTAppleHealthKit+Methods_Results.h"
+#import "RCTAppleHealthKit+Methods_Nutrition.h"
 
 @implementation RCTAppleHealthKit
 
@@ -177,11 +178,15 @@ RCT_EXPORT_METHOD(getInfo:(NSDictionary *)input callback:(RCTResponseSenderBlock
     callback(@[[NSNull null], @(isAvailable)]);
 }
 
+RCT_EXPORT_METHOD(saveMeal:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self nutrition_saveMeal:input callback:callback];
+}
 
 - (void)initializeHealthKit:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
 {
     self.healthStore = [[HKHealthStore alloc] init];
-    
+
     if ([HKHealthStore isHealthDataAvailable]) {
         NSSet *writeDataTypes;
         NSSet *readDataTypes;
@@ -193,7 +198,7 @@ RCT_EXPORT_METHOD(getInfo:(NSDictionary *)input callback:(RCTResponseSenderBlock
             NSArray* writePermsArray = [permissions objectForKey:@"write"];
             NSSet* readPerms = [self getReadPermsFromOptions:readPermsArray];
             NSSet* writePerms = [self getWritePermsFromOptions:writePermsArray];
-            
+
             if(readPerms != nil) {
                 readDataTypes = readPerms;
             }
