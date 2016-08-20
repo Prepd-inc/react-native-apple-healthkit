@@ -27,7 +27,7 @@
     NSDate *now = [NSDate date];
 
     for(id key in input) {
-      HKUnit *unit = ([key isEqualToString:@"DietaryEnergy"]) ? [HKUnit kilocalorieUnit] : [HKUnit gramUnit];
+      HKUnit *unit = ([key isEqualToString:@"DietaryEnergy"]) ? [HKUnit calorieUnit] : [HKUnit gramUnit];
       double value = [RCTConvert double:[input objectForKey:key]];
 
       HKQuantitySample* object = [HKQuantitySample

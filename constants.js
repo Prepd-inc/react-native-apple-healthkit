@@ -23,6 +23,7 @@ const PERMISSIONS = {
 	DietaryFatMonounsaturated: 'DietaryFatMonounsaturated',
 	DietaryFatPolyunsaturated: 'DietaryFatPolyunsaturated',
 	DietaryFatSaturated: 'DietaryFatSaturated',
+	DietaryFatTotal: 'DietaryFatTotal',
 	DietarySugar: 'DietarySugar',
 	DietaryProtein: 'DietaryProtein',
 	DietaryCholesterol: 'DietaryCholesterol',
