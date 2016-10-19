@@ -10,6 +10,7 @@
 
 @implementation RCTAppleHealthKit (TypesAndPermissions)
 
+
 #pragma mark - HealthKit Permissions
 
 - (NSDictionary *)readPermsDict {
@@ -46,6 +47,13 @@
         @"DietaryCholesterol" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCholesterol],
         @"DietarySodium" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietarySodium],
         @"DietaryFiber" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryFiber],
+        @"DietaryCalcium" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCalcium],
+        @"DietaryIron" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryIron],
+        @"DietaryFiber" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryFiber],
+        @"DietaryPotassium" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryPotassium],
+        @"DietaryVitaminA" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminA],
+        @"DietaryVitaminC" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminC],
+        @"DietaryVitaminD" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminD],
         // Vital Signs Identifiers
         @"HeartRate" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate],
         @"BodyTemperature" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyTemperature],
@@ -57,6 +65,7 @@
     };
     return readPerms;
 }
+
 
 - (NSDictionary *)writePermsDict {
     NSDictionary *writePerms = @{
@@ -87,7 +96,13 @@
         @"DietaryCholesterol" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCholesterol],
         @"DietarySodium" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietarySodium],
         @"DietaryFiber" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryFiber],
-
+        @"DietaryCalcium" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCalcium],
+        @"DietaryIron" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryIron],
+        @"DietaryFiber" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryFiber],
+        @"DietaryPotassium" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryPotassium],
+        @"DietaryVitaminA" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminA],
+        @"DietaryVitaminC" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminC],
+        @"DietaryVitaminD" : [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminD],
     };
     return writePerms;
 }
@@ -102,7 +117,6 @@
         NSString *optionKey = options[i];
         HKObjectType *val = [readPermDict objectForKey:optionKey];
         if(val != nil) {
-//            RCTLogInfo(@"Adding read permissions from options: %@", optionKey);
             [readPermSet addObject:val];
         }
     }
@@ -120,7 +134,6 @@
         NSString *optionKey = options[i];
         HKObjectType *val = [writePermDict objectForKey:optionKey];
         if(val != nil) {
-//            RCTLogInfo(@"Adding write permissions from options: %@", optionKey);
             [writePermSet addObject:val];
         }
     }
