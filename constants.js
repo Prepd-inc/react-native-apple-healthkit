@@ -34,7 +34,7 @@ const PERMISSIONS = {
 	DietaryPotassium: 'DietaryPotassium',
 	DietaryVitaminA: 'DietaryVitaminA',
 	DietaryVitaminC: 'DietaryVitaminC',
-	DietaryVitamind: 'DietaryVitaminD',
+	DietaryVitaminD: 'DietaryVitaminD',
 	HeartRate: 'HeartRate',
   BodyTemperature: 'BodyTemperature',
   BloodPressureSystolic: 'BloodPressureSystolic',
